@@ -1,7 +1,24 @@
-import { useUser } from "@/lib/context/useUser";
 import Link from "next/link";
 import tw from "twin.macro";
 import { FaUserAlt } from "react-icons/fa";
+import { useAuth0 } from "@auth0/auth0-react";
+
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+  return <button onClick={() => loginWithRedirect()}>Log In</button>;
+};
+
+const LogoutButton = () => { 
+  const { logout } = useAuth0();
+
+  return (
+    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+      Log Out
+    </button>
+  );
+};
+
+
 
 const NavbarLink: React.FC<{ children: any; href: string; user?: boolean }> = ({
   children,
@@ -25,9 +42,7 @@ const NavbarLink: React.FC<{ children: any; href: string; user?: boolean }> = ({
 };
 
 export const Navbar = () => {
-  const {
-    user: { name },
-  } = useUser();
+
 
   return (
     <nav tw="bg-[#d4a373] border-gray-200 dark:bg-[#d4a373]">
@@ -36,7 +51,7 @@ export const Navbar = () => {
         <img src="/logoPB_light.png" tw="h-8 mr-3" alt="Pueblo" />
     </a>
     <div tw="flex md:order-2">
-        <button type="button" tw="text-[#d4a373] bg-[#ccd5ae] hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-white dark:hover:bg-[#ccd5ae] hover:scale-110">Get started</button>
+    <LoginButton />
     </div>
     <div tw="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
       <ul tw="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-[#d4a373] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">

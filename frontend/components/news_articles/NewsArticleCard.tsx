@@ -1,12 +1,10 @@
 import { NewsArticle_Interface, NewsMore_Interface } from "@/types/news";
-import { useUser } from "@/lib/context/useUser";
 import { useMemo } from "react";
 import Link from "next/link";
 import tw from "twin.macro";
 
 export const NewsArticleCard: React.FC<{
-  news: NewsArticle_Interface |
-  NewsMore_Interface;
+  news: NewsArticle_Interface | NewsMore_Interface;
   more?: boolean;
 }> = ({ news, more }) => {
   const data = useMemo(() => {
@@ -14,40 +12,55 @@ export const NewsArticleCard: React.FC<{
   }, [news]);
 
   const { _id, title, body, link, pic, tags, provinces } = data;
-
-  const {
-    user: { name: userName },
-  } = useUser();
-  console.log(body)
   return (
     <div
       css={[
-        tw`bg-gray-200 rounded-xl border border-slate-200 grow shrink basis-[600px]`,
+        tw`bg-white max-w-sm rounded overflow-hidden shadow-lg grow shrink basis-[300px]`,
         more && tw`grow-0 basis-[800px]`,
-      ]}
-    >
-      <div tw="overflow-hidden rounded-xl flex flex-col gap-4">
-        <img tw="max-h-96 object-cover" src={pic} alt="news image" />
-
-        <div>
-          <div tw="rounded-full mx-4 px-4 py-2 bg-white text-slate-500 inline-block">
-            {userName}
-          </div>
-        </div>
+      ]}>
+      <div tw="overflow-hidden rounded-l flex flex-col gap-4">
+        <img tw="w-full" src={pic} alt={title} />
         <div tw="p-4 flex flex-col gap-2">
-          <h2 tw="font-bold text-3xl">{title}</h2>
-        
-          <p tw="text-slate-500 text-lg whitespace-pre-wrap">{body}</p>
+          <h5 tw="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
+            {title}
+          </h5>
+
+          <p tw="mb-3 font-normal text-gray-700 dark:text-black text-justify whitespace-pre-wrap">
+            {body}
+          </p>
         </div>
-        {!more && (
-          
-          <Link
-            tw="rounded-full m-4 px-4 py-2 bg-white text-slate-500"
-            href={`/news/${_id}`}
-          >
-            View More
-          </Link>
-        )}
+        <div tw="h-px flex-auto bg-gray-100"></div>
+        <div tw="mt-10 flex items-center justify-center gap-x-6 justify-center">
+          {!more && (
+            <a
+              href={`/news/${_id}`}
+              tw="rounded-md bg-[#d4a373] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#ccd5ae] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              View More{" "}
+            </a>
+          )}
+          <a
+            href={link}
+            tw="text-sm font-semibold leading-6 text-[#d4a373] hover:text-[#ccd5ae]">
+            Link <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <p tw="mb-5 text-xs text-gray-700 dark:text-black justify-center">
+          Provinces:{"  "}
+          {provinces.map((province) => (
+            <p tw="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              #{province}
+            </p>
+          ))}
+        </p>
+        <p tw="mb-5 text-xs text-gray-700 dark:text-black justify-center">
+          Tags:{"  "}
+          {tags.map((tag) => (
+            <p tw="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              #{tag}
+            </p>
+          ))}
+        </p>
       </div>
     </div>
   );

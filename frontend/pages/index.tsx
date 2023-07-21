@@ -8,10 +8,6 @@ const Page = () => {
         <Title>Pueblar - Come to the Pueblo</Title>
         <NewsList />
       </section>
-      <section tw="flex justify-center items-center flex-col gap-8">
-        <Title>Pueblar - Come to the Pueblo</Title>
-        <NewsList />
-      </section>
     </div>
   );
 };

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon -e hbs,ts src/server.ts",
-    "seed": "ts-node src/seed.ts"
+    "seed": "ts-node src/seed/seed.ts"
   },
   "dependencies": {
     "@fastify/cors": "^8.3.0",

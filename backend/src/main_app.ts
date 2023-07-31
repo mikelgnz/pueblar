@@ -6,7 +6,8 @@ import fastifyFormbody from "@fastify/formbody";
 import fastifyBlipp from "fastify-blipp";
 import fastifyCors from "@fastify/cors";
 import { DBPlugin } from "./lib/db";
-import { NewsArticlePlugin } from "./routes/newsarticles";
+import { NewsArticlePlugin } from "./routes/news";
+import { PuebloHousePlugin } from "./routes/pueblohouses";
 
 export const mainApp: FastifyPluginAsync = async (server) => {
   // DB Connection
@@ -23,9 +24,8 @@ export const mainApp: FastifyPluginAsync = async (server) => {
 
   // Plugins registration
   await server.register(NewsArticlePlugin, { prefix: "/news" });
+  await server.register(PuebloHousePlugin, { prefix: "/houses" });
   await server.register(RoutesPlugin);
-  await server.register(RecipesPlugin, { prefix: "/recipes" });
-  await server.register(IngredientPlugin, { prefix: "/ingredients" });
 
   // fastify-blipp initializer
   server.blipp();

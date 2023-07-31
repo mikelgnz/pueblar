@@ -9,7 +9,7 @@ const NewsMorePage = () => {
     query: { id },
   } = useRouter();
 
-  const { data: recipe } = useSWR(`/news/get/${id}`, {
+  const { data: news } = useSWR(`/news/get/${id}`, {
     refreshInterval: 10000,
   });
 
@@ -17,7 +17,7 @@ const NewsMorePage = () => {
     <section tw="flex flex-col gap-4 justify-center items-center">
       {news && (
         <>
-          <Title>{news.name}</Title>
+          <Title>{news.title}</Title>
           <div tw="flex justify-center">
             <NewsArticleCard news={news} more />
           </div>

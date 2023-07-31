@@ -25,12 +25,11 @@ export const NewsArticleCard: React.FC<{
             {title}
           </h5>
 
-          <p tw="mb-3 font-normal text-gray-700 dark:text-black text-justify whitespace-pre-wrap">
+          <p tw="font-normal text-gray-700 dark:text-black text-justify whitespace-pre-wrap">
             {body}
           </p>
         </div>
-        <div tw="h-px flex-auto bg-gray-100"></div>
-        <div tw="mt-10 flex items-center justify-center gap-x-6 justify-center">
+        <div tw="flex items-center justify-center gap-x-6 justify-center">
           {!more && (
             <a
               href={`/news/${_id}`}
@@ -44,8 +43,9 @@ export const NewsArticleCard: React.FC<{
             Link <span aria-hidden="true">→</span>
           </a>
         </div>
+        <div tw="h-px flex-auto bg-gray-100"></div>
 
-        <p tw="mb-5 text-xs text-gray-700 dark:text-black justify-center">
+        <p tw="ml-5 text-xs text-gray-700 dark:text-black justify-center">
           Provinces:{"  "}
           {provinces.map((province) => (
             <p tw="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -53,7 +53,8 @@ export const NewsArticleCard: React.FC<{
             </p>
           ))}
         </p>
-        <p tw="mb-5 text-xs text-gray-700 dark:text-black justify-center">
+        <div tw="h-px flex-auto bg-gray-100"></div>
+        <p tw="ml-5 text-xs text-gray-700 dark:text-black justify-center">
           Tags:{"  "}
           {tags.map((tag) => (
             <p tw="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

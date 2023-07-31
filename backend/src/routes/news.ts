@@ -2,7 +2,7 @@ import { FastifyPluginAsync } from "fastify";
 import { BadRequest, NotFound } from "http-errors";
 import { isEmptyAndNotString } from "../lib/isEmpty";
 import { Types } from "mongoose";
-import { NewsArticleModel } from "../models/newsArticle";
+import { NewsArticleModel } from "../models/NewsArticle";
 
 export const NewsArticlePlugin: FastifyPluginAsync = async (server) => {
   server.get("/list", async (request, reply) => {

@@ -6,13 +6,14 @@ let HouseArray = [
   {
     title: "Come with your family to Corumbela",
     pic: "https://i0.hippopx.com/photos/79/497/235/spain-village-ise-shima-town-preview.jpg",
-    price: "free",
+    price: "0",
     for: "rent",
-    m2: "90",
+    area: "90",
     condition: "some update needed",
     comment:
-      "The small town of Corumbela needs families to move in so authorities don’t close the school.",
+      "The small town of Corumbela needs families to move in so authorities don’t close elementary school.",
     contact: "info@house.com",
+    town: "Corumbela",
     province: "málaga",
   },
   {
@@ -20,23 +21,25 @@ let HouseArray = [
     pic: "https://cdn.thinkwebcontent.com/property/15129/7193992/20221102050256/w1920h1440/s640x480/x-197834291.jpg",
     price: "15000",
     for: "sale",
-    m2: "110",
+    area: "110",
     condition: "ready to live in",
     comment:
-      "The small town of Corumbela needs families to move in so authorities don’t close the school.",
-    contact: "info@house.com",
-    province: "valencia",
+      "In the interior side of Valencia, the town has rehabilited old houses. Suited for entrepeneurs and remote workers. ",
+    contact: "info@here.com",
+    town: "Camporobles",
+    province: "Valencia",
   },
   {
     title: "300 year old house",
     pic: "https://cdn.terrenos.es/photo/0004/48/thumb_347164_photo_standart.jpg",
-    price: "free",
+    price: "0",
     for: "sale",
-    m2: "210",
+    area: "210",
     condition: "to rehabilitate",
     comment:
-      "The small town of Corumbela needs families to move in so authorities don’t close the school.",
+      "The house needs to be rehabilited, but with the big stonewalls and area has a lot of potencial. In town there are a lot of works in winneries and vineyards.",
     contact: "info@house.com",
+    town: "Lapuebla",
     province: "araba",
   },
 ];
@@ -46,7 +49,3 @@ export const createHouses = () => {
     await PuebloHouseModel.create(house);
   });
 };
-
-
-
-

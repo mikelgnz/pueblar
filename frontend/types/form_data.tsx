@@ -1,5 +1,4 @@
-export interface PuebloHouse_Interface {
-    _id: string;
+export interface FormDataInterface {
     title: string;
     pic: string;
     condition: string;
@@ -10,4 +9,4 @@ export interface PuebloHouse_Interface {
     town: string;
     province: string;
     contact: string;
-  }
+}

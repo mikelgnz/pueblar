@@ -7,7 +7,7 @@ export const HouseList = () => {
   return (
     <div tw="flex gap-4 flex-wrap w-full">
       {!list && (
-       <p>Loading..</p> 
+       <p>Loading...</p> 
       )}
       {list &&
         list.map((house) => {

@@ -1,4 +1,4 @@
-import { Title } from "@/components/core/Title";
+import { Title } from "@/components/base/Title";
 import { NewsList } from "@/components/news_articles/NewsList";
 
 const NewsPage = () => {

@@ -14,7 +14,7 @@ let HouseArray = [
       "The small town of Corumbela needs families to move in so authorities don’t close elementary school.",
     contact: "info@house.com",
     town: "Corumbela",
-    province: "málaga",
+    province: "Málaga",
   },
   {
     title: "Rehabilitated house",
@@ -40,7 +40,7 @@ let HouseArray = [
       "The house needs to be rehabilited, but with the big stonewalls and area has a lot of potencial. In town there are a lot of works in winneries and vineyards.",
     contact: "info@house.com",
     town: "Lapuebla",
-    province: "araba",
+    province: "Araba",
   },
 ];
 

@@ -19,5 +19,5 @@ server.register(mainApp);
 // Port configuration
 server.listen({ port: PORT }, (error, address) => {
   if (error) throw error;
-  // Server is now liston to ${address}
+  // Server is now online on ${address}
 });

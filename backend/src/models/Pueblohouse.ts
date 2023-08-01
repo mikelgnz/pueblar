@@ -10,7 +10,7 @@ export interface PuebloHouse_Interface extends Document {
   comment: string;
   town: string;
   province: string;
-  contact: string;
+  contact: string
 }
 
 const schema = new Schema(

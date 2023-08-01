@@ -15,36 +15,36 @@ export const NewsArticlePlugin: FastifyPluginAsync = async (server) => {
     const { id } = request.params;
 
     if (isEmptyAndNotString(id)) {
-      throw new BadRequest("Recipe ID is required");
+      throw new BadRequest("News ID is required");
     }
 
     if (!Types.ObjectId.isValid(id)) {
-      throw new BadRequest("Recipe ID is invalid");
+      throw new BadRequest("News ID is invalid");
     }
 
-    console.log(`Fetching recipe ${id}`);
+    console.log(`Fetching news ${id}`);
 
-    const recipe = await NewsArticleModel.findById(id);
+    const news = await NewsArticleModel.findById(id);
 
-    if (!recipe) {
+    if (!news) {
       throw new NotFound(`News Article with ${id} not found`);
     }
   });
 
-  server.post<{ Body: { name: string; instructions: string } }>(
+  server.post<{ Body: { title: string; body: string } }>(
     "/add",
     async (request, reply) => {
-      const { name, instructions } = request.body;
+      const { title, body } = request.body;
 
-      if (isEmptyAndNotString(name)) {
-        throw new BadRequest("Name is required");
+      if (isEmptyAndNotString(title)) {
+        throw new BadRequest("Title is required");
       }
 
-      if (isEmptyAndNotString(instructions)) {
-        throw new BadRequest("Instructions are required");
+      if (isEmptyAndNotString(body)) {
+        throw new BadRequest("Body is required");
       }
 
-      await NewsArticleModel.create({ name, instructions });
+      await NewsArticleModel.create({ title, body });
 
       return reply.send({
         status: "created",
@@ -63,9 +63,9 @@ export const NewsArticlePlugin: FastifyPluginAsync = async (server) => {
       throw new BadRequest("News Article ID is invalid");
     }
 
-    const findRecipe = await NewsArticleModel.findById(id);
-    if (!findRecipe) {
-      throw new NotFound("Recipe not found");
+    const findNews = await NewsArticleModel.findById(id);
+    if (!findNews) {
+      throw new NotFound("News not found");
     }
 
     await NewsArticleModel.findByIdAndDelete(id);
@@ -77,6 +77,6 @@ export const NewsArticlePlugin: FastifyPluginAsync = async (server) => {
   server.get("/delete_all", async (request, reply) => {
     await NewsArticleModel.deleteMany();
 
-    return reply.send({ status: "all recipes deleted" });
+    return reply.send({ status: "all news deleted" });
   });
 };

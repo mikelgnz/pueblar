@@ -63,10 +63,7 @@ export const HouseCard: React.FC<{ house: PuebloHouse_Interface }> = ({
 
         {/* Comment */}
         <div tw="mx-4 mb-3 px-3 py-2 rounded-lg bg-[#e1e6cf]">
-          <p tw="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
-            Comment
-          </p>
-          <p tw="text-sm text-gray-700 italic">{comment}</p>
+<p tw="text-sm text-gray-700 italic">{comment}</p>
         </div>
 
         {/* Footer: area, price, contact */}

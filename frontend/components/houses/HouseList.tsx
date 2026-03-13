@@ -5,7 +5,7 @@ export const HouseList = () => {
   const list = useHouseList();
 
   return (
-    <div tw="flex gap-4 flex-wrap w-full">
+    <div tw="flex gap-4 flex-wrap w-full justify-center">
       {!list && (
        <p>Loading...</p> 
       )}
